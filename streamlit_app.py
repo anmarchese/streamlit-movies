@@ -4,8 +4,8 @@ import numpy as np
 
 df = pd.read_csv('movie_ratings.csv')
 df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,False,True])
-df['Audience_Rating'] = df['Audience_Rating'].astype(int)
-df['Tomato_Rating'] = df['Tomato_Rating'].astype(int)
+df['Audience_Rating'] = df['Audience_Rating'].astype(pd.Int64Dtype())
+df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
 df.reset_index(drop=True,inplace=True)
 types = df.Type.unique().tolist()
 add_selectbox = st.multiselect(
