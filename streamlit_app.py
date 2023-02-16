@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 
 df = pd.read_csv('movie_ratings.csv')
-df = df.sort_values(['Ratings','Title'],ascending=[False,True])
-df['Rating'] = df['Ratings'].astype(int)
-df.drop('Ratings',axis=1,inplace=True)
+df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,False,True])
+df['Audience_Rating'] = df['Audience_Rating'].astype(int)
+df['Tomato_Rating'] = df['Tomato_Rating'].astype(int)
 df.reset_index(drop=True,inplace=True)
 types = df.Type.unique().tolist()
 add_selectbox = st.multiselect(
