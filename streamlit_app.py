@@ -6,8 +6,7 @@ df = pd.read_csv('movie_ratings.csv')
 df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,False,True])
 df['Audience_Rating'] = df['Audience_Rating'].astype(pd.Int64Dtype())
 df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
-#initialize vote count as NAs
-df['IMDB Vote Count'] = np.nan
+df['IMDB Vote Count'] = 1
 df['IMDB Vote Count'] = df['IMDB Vote Count'].astype(pd.Int64Dtype())
 df.drop('IMDB Matched Movie',axis=1,inplace=True)
 df.reset_index(drop=True,inplace=True)
