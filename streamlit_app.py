@@ -9,6 +9,7 @@ df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,F
 df['Audience_Rating'] = df['Audience_Rating'].astype(pd.Int64Dtype())
 df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
 df['IMDB Vote Count'] = df['IMDB Vote Count'].astype(pd.Int64Dtype())
+df['IMDB Vote Count'] = df['IMDB Vote Count'].fillna(0)
 df.drop('IMDB Matched Movie',axis=1,inplace=True)
 df.reset_index(drop=True,inplace=True)
 types = df.Type.unique().tolist()
