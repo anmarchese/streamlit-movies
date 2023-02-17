@@ -6,7 +6,8 @@ df = pd.read_csv('movie_ratings.csv')
 df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,False,True])
 df['Audience_Rating'] = df['Audience_Rating'].astype(pd.Int64Dtype())
 df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
-df['IMDB Vote Count'] = np.random.randint(0,100000,df.shape[0])
+#initialize vote count as NAs
+df['IMDB Vote Count'] = np.nan
 df['IMDB Vote Count'] = df['IMDB Vote Count'].astype(pd.Int64Dtype())
 df.drop('IMDB Matched Movie',axis=1,inplace=True)
 df.reset_index(drop=True,inplace=True)
@@ -16,7 +17,7 @@ add_selectbox = st.multiselect(
     types,types)
 min_votes = st.slider(
     "Minimum IMDB Votes",
-    value=50, min_value=0, max_value=10000, step=10)
+    value=100, min_value=0, max_value=10000, step=10)
 st.title('Peacock Ratings')
 if add_selectbox is None:
     st.table(df)
