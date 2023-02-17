@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+st.set_page_config(layout="wide"
 
 df = pd.read_csv('movie_ratings.csv')
 df = df.sort_values(['IMDB_Rating','Audience_Rating','Title'],ascending=[False,False,True])
