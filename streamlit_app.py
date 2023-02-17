@@ -24,8 +24,8 @@ min_votes = st.slider(
     value=100, min_value=0, max_value=10000, step=10)
 st.title('Peacock Ratings')
 #show is any of the selected genre coklumns are 1
-df = df[df[genre_box].sum(axis=1) > 0]
+selected_genres = [f'Genre_{i}' for i in genre_box]
 if add_selectbox is None:
-    st.table((df[df.columns[:8]]) & (df[df[genre_box].sum(axis=1) > 0]))
+    st.table((df[df.columns[:8]]) & (df[df[selected_genres].sum(axis=1) > 0]))
 else:
-    st.table(df[df['Type'].isin(add_selectbox) & (df['IMDB Vote Count'] >= min_votes) & (df[df[genre_box].sum(axis=1) > 0]) ][df.columns[:8]])
+    st.table(df[df['Type'].isin(add_selectbox) & (df['IMDB Vote Count'] >= min_votes) & (df[df[selected_genres].sum(axis=1) > 0]) ][df.columns[:8]])
