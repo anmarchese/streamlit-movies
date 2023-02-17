@@ -22,7 +22,7 @@ add_selectbox = st.multiselect(
     'Movie Type?',
     types,types)
 genre_box = st.multiselect(
-    'Genre?',genres,genres)
+    'Genre?',genres,['documentary','sports','music','biography'])
 min_votes = st.slider(
     "Minimum IMDB Votes",
     value=100, min_value=0, max_value=10000, step=10)
