@@ -22,7 +22,9 @@ add_selectbox = st.multiselect(
     'Movie Type?',
     types,types)
 genre_box = st.multiselect(
-    'Genre?',genres,['documentary','sport','music','biography'])
+    'Any of these genres',genres,['documentary','sport','music','biography'])
+must_genre = st.multiselect(
+    'Must be all of these of these genres',genres,[])
 min_votes = st.slider(
     "Minimum IMDB Votes",
     value=100, min_value=0, max_value=10000, step=10)
@@ -30,6 +32,9 @@ st.title('Peacock Ratings')
 #show is any of the selected genre coklumns are 1
 selected_genres = [f'Genre_{i}' for i in genre_box]
 show_df = df[df[selected_genres].sum(axis=1) > 0]
+if must_genre:
+    must_genres = [f'Genre_{i}' for i in must_genre]
+    show_df = show_df[show_df[must_genres].sum(axis=1) == len(must_genre)]
 if add_selectbox is None:
     st.table(show_df[show_df.columns[:8]])
 else:
