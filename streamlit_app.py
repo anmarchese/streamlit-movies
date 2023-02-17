@@ -9,7 +9,7 @@ df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
 df['IMDB Vote Count'] = 1
 df['IMDB Vote Count'] = df['IMDB Vote Count'].astype(pd.Int64Dtype())
 print(df.columns)
-df = df[['Title','Description']]
+df = df['Title','Description']
 #df = df[['Title','Description','Audience_Rating','Tomato_Rating','IMDB_Rating','IMDB Vote Count']]
 df.reset_index(drop=True,inplace=True)
 types = df.Type.unique().tolist()
