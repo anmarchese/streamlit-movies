@@ -17,6 +17,6 @@ min_votes = st.slider(
     value=100, min_value=0, max_value=10000, step=10)
 st.title('Peacock Ratings')
 if add_selectbox is None:
-    st.dataframe(df)
+    st.dataframe(df, width=1500)
 else:
-    st.dataframe(df[df['Type'].isin(add_selectbox) & (df['IMDB Vote Count'] >= min_votes)])
+    st.dataframe(df[df['Type'].isin(add_selectbox) & (df['IMDB Vote Count'] >= min_votes)],width=1500)
