@@ -32,4 +32,4 @@ selected_genres = [f'Genre_{i}' for i in genre_box]
 if add_selectbox is None:
     st.table((df[df.columns[:8]]) & (df[df[selected_genres].sum(axis=1) > 0]))
 else:
-    st.table(df[df['Type'].isin(add_selectbox) & (df['IMDB Vote Count'] >= min_votes) & (df[df[selected_genres].sum(axis=1) > 0]) ][df.columns[:8]])
+    st.table(df[(df['Type'].isin(add_selectbox)) & (df['IMDB Vote Count'] >= min_votes) & (df[df[selected_genres].sum(axis=1) > 0]) ][df.columns[:8]])
