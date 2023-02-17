@@ -8,7 +8,7 @@ df['Audience_Rating'] = df['Audience_Rating'].astype(pd.Int64Dtype())
 df['Tomato_Rating'] = df['Tomato_Rating'].astype(pd.Int64Dtype())
 df['IMDB Vote Count'] = 1
 df['IMDB Vote Count'] = df['IMDB Vote Count'].astype(pd.Int64Dtype())
-df.columns = ['Title','Description','Audience_Rating','Tomato_Rating','IMDB_Rating','IMDB_Vote_Count']
+#df.columns = ['Title','Description','Audience_Rating','Tomato_Rating','IMDB_Rating','IMDB_Vote_Count']
 df.reset_index(drop=True,inplace=True)
 types = df.Type.unique().tolist()
 add_selectbox = st.multiselect(
